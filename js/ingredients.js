@@ -1,0 +1,22 @@
+const ing = [
+    {name: 'avocado', img: 'avocado.png', good: false},
+    {name: 'banana', img: 'banana.png', good: false},
+    {name: 'beer', img: 'beer.png', good: false},
+    {name: 'beetroot.png', img: 'beetroot.png', good: false},
+    {name: 'cheese', img: 'cheese.png', good: false},
+    {name: 'coconut', img: 'coconut.png', good: false},
+    {name: 'croissant', img: 'croissant.png', good: false},
+    {name: 'donut', img: 'donut.png', good: false},
+    {name: 'egg', img: 'egg.png', good: true},
+    {name: 'fishcake', img: 'fishcake.png', good: true},
+    {name: 'nachos', img: 'nachos.png', good: false},
+    {name: 'noodles', img: 'noodles.png', good:true},
+    {name: 'nutella', img: 'nutella.png', good:false},
+    {name: 'oreo', img: 'oreo.png', good:false},
+    {name: 'pork', img: 'pork.png', good: true},
+    {name: 'scallions', img: 'scallions.png', good: true},
+    {name: 'snicker', img: 'snicker.png', good: false},
+    {name: 'teapot', img: 'teapot.png', good: true},
+    {name: 'wafle', img: 'wafle.png', good: false},
+    {name: 'watermelon', img: 'watermelon.png', good: false}
+];

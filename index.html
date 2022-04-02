@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Ramen Master</title>
+  </head>
+  <body>
+    <div class="splash">
+    <div>
+       <h1 class="title">Ramen Master</h1> 
+    </div>
+     <div>
+      <img src="./images/" alt="" class="ramen"/>  
+      <div>
+        <h2>Instructions</h2> 
+        <p>Before you get your <em>Ramen Master</em> title, you must be able to make the <em>perfect ramen</em>. To do so you must use the correct ingredients.</p>
+        <ul>
+            <li>Get all the necessary ingredients.</li>
+            <li>Don't repeat any of them.</li>
+            <li>Don't use any wrong ingredient.</li>
+            <li>Dont't let your ramen get cold!!</li>
+        </ul>  
+      </div>
+      </div> 
+      <button id="start-button">Start!</button>
+      <p>Use the left and right buttons to catch your ingredients!</p>
+      <img src="./images/" alt="" class="arrows-img"/>
+    </div>
+    <div id="game-board">
+      <canvas id="canvas" width="800" height="600"></canvas>
+    </div>
+    <div class="game-over">
+        <h1>YOU LOST!</h1>
+        <button>Restart</button>
+    </div>
+    <div class="win-screen">
+        <h1>WELL DONE!</h1>
+        <button>Play again</button>
+    </div>
+    <script type="text/javascript" src="js/ingredients.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/background.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
