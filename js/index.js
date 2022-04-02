@@ -8,16 +8,20 @@ const ctx = canvas.getContext("2d");
 let background,
     player,
     ingredients = [],
-    intervalId;
+    intervalId,
+    score = [],
+    catchedIng;
 
 function startGame() {
-    console.log('start!');
     gameOver.classList.add("hidden");
-	//gameSplash.classList.add("hidden");
+	gameSplash.classList.add("hidden");
     winner.classList.add("hidden");
 	reset();
     background = new Background(canvas, ctx);
     player = new Player(canvas, ctx);
+    setInterval(() => {
+        ingredients.push(new Ingredient(myIngredients,canvas, ctx));
+    }, 600);
     createEventListeners();
     update();
 }
@@ -26,6 +30,22 @@ function update() {
     clear();
     background.draw();
 	player.draw();
+    ingredients.forEach((item)=> {
+        item.move();
+        item.draw();
+    });
+    if (catchIngredient()) {
+        if (catchedIng.good){
+            score.push(catchedIng.name);
+            catchedIng.image = null;
+            console.log(score);
+        }
+        else{
+		gameOver.classList.remove("hidden");
+		reset();
+		return;
+        }
+	}
     intervalId = requestAnimationFrame(update);
 }
 
@@ -48,9 +68,32 @@ function createEventListeners() {
 	}); 
 }
 
+function catchIngredient() {
+	let catched = false;
+	for (let i = 0; i < ingredients.length; i++) {
+	    catchedIng = ingredients[i];
+		const withinX =
+			player.x + (player.width - 50) > catchedIng.x && player.x < catchedIng.x + (player.width - 50);
+		const withinY =
+        catchedIng.y + catchedIng.height > player.y && catchedIng.y < player.y + (player.height -50);
+
+		catched = withinX && withinY;
+
+		if (catched) {
+            return catchedIng;
+		}
+	}
+	return catched;
+}
+
 function reset() {
     cancelAnimationFrame(intervalId);
     background = null;
     player = null;
     ingredients = [];
+    catchedIng = null;
+}
+
+function checkIfWin() {
+    
 }

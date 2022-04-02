@@ -3,11 +3,11 @@ class Player {
         this.canvas = canvas;
         this.ctx = ctx;
         this.image = null;
-        this.playerSpeed = 20;
-        this.width = 80;
-        this.height = 150;
-        this.y = 440;
-        this.x = 500;
+        this.playerSpeed = 40;
+        this.width = 100;
+        this.height = 200;
+        this.y = 600;
+        this.x = 700;
         this.init();
     }
     init() {
