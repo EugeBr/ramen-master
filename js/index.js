@@ -1,4 +1,6 @@
 document.querySelector("#start-button").addEventListener('click', startGame);
+document.querySelector(".restart-button").addEventListener('click', startGame);
+document.querySelector(".playAgain-button").addEventListener('click', startGame);
 const gameSplash = document.querySelector(".splash");
 const gameOver = document.querySelector(".game-over");
 const winner = document.querySelector(".win-screen");
@@ -35,16 +37,19 @@ function update() {
         item.draw();
     });
     if (catchIngredient()) {
-        if (catchedIng.good){
+        if (catchedIng.good && (score.indexOf(catchedIng.name) == -1)){
             score.push(catchedIng.name);
             catchedIng.image = null;
             console.log(score);
+            
         }
-        else{
+        if(!catchedIng.good) {
+            console.log('bad');
 		gameOver.classList.remove("hidden");
 		reset();
 		return;
         }
+        checkIfWin();
 	}
     intervalId = requestAnimationFrame(update);
 }
@@ -88,12 +93,19 @@ function catchIngredient() {
 
 function reset() {
     cancelAnimationFrame(intervalId);
+    clearInterval();
     background = null;
     player = null;
     ingredients = [];
     catchedIng = null;
+    score = [];
+    intervalId = null;
 }
 
 function checkIfWin() {
-    
+    if (score.length === 5) {
+        winner.classList.remove("hidden");
+		reset();
+		return;
+    }
 }
