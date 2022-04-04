@@ -23,9 +23,10 @@ function startGame() {
     player = new Player(canvas, ctx);
     setInterval(() => {
         ingredients.push(new Ingredient(myIngredients,canvas, ctx));
-    }, 600);
+    }, 800);
     createEventListeners();
     update();
+    countdown();
 }
 
 function update() {
@@ -91,9 +92,30 @@ function catchIngredient() {
 	return catched;
 }
 
+function countdown() {
+    let seconds = 31;
+    const counter = document.getElementById('timer');
+    
+     const timer = setInterval(() => {
+      seconds --;
+      if (seconds > 9){
+        counter.innerHTML = '0:' + seconds;   
+      } else {
+        counter.innerHTML = '0:0' + seconds;
+      }
+      if (seconds == 0) { 
+        console.log('timeout');
+        clearInterval(timer);
+       gameOver.classList.remove("hidden");
+        reset(); 
+    };
+        }, 1000);  
+    
+
+}
+
 function reset() {
     cancelAnimationFrame(intervalId);
-    clearInterval();
     background = null;
     player = null;
     ingredients = [];
