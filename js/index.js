@@ -15,9 +15,7 @@ let background,
     catchedIng;
 
 function startGame() {
-    gameOver.classList.add("hidden");
 	gameSplash.classList.add("hidden");
-    winner.classList.add("hidden");
 	reset();
     background = new Background(canvas, ctx);
     player = new Player(canvas, ctx);

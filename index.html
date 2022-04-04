@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles/style.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+      </style>
     <title>Ramen Master</title>
   </head>
   <body>
-    <div class="splash">
-    <div>
-       <h1 class="title">Ramen Master</h1> 
-    </div>
-     <div>
-      <img src="./images/" alt="" class="ramen"/>  
-      <div>
+    <section class="splash" style= "background-image: url(images/splash.jpg)">
+      <h1 class="title">Ramen Master</h1> 
+    <div class="start-game">
+       
+      <div class="instructions">
         <h2>Instructions</h2> 
         <p>Before you get your <em>Ramen Master</em> title, you must be able to make the <em>perfect ramen</em>. To do so you must use the correct ingredients.</p>
         <ul>
@@ -23,24 +24,25 @@
             <li>Don't use any wrong ingredient.</li>
             <li>Dont't let your ramen get cold!!</li>
         </ul>  
-      </div>
-      </div> 
       <button id="start-button">Start!</button>
       <p>Use the left and right buttons to catch your ingredients!</p>
-      <img src="./images/" alt="" class="arrows-img"/>
+      <img src="./images/keys.png" alt="keys" class="arrows-img"/>
+      </div> 
+       <img src="./images/ramen.png" alt="ramen-bowl" class="ramen"/>  
     </div>
-    <div id="game-board">
+    </section>
+    <section id="game-board">
       <p id="timer"></p>
       <canvas id="canvas" width="1200" height="800"></canvas>
-    </div>
-    <div class="game-over">
+    </section>
+    <section class="game-over hidden">
         <h1>YOU LOST!</h1>
         <button class="restart-button">Play again!</button>
-    </div>
-    <div class="win-screen">
+    </section>
+    <section class="win-screen hidden">
         <h1>WELL DONE!</h1>
         <button class="playAgain-button">Play again!</button>
-    </div>
+    </section>
     <script type="text/javascript" src="js/ingredients.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/background.js"></script>
