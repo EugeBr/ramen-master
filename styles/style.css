@@ -7,8 +7,9 @@
     display: none; 
 }
 canvas {
+    margin-top: 50px;
     border-radius: 50px;
-    margin-left: 200px;
+    margin-left: 300px;
 }
 .splash {
     background-image: url("../images/splash.jpg");
@@ -51,11 +52,30 @@ button:hover {
     color: white;
 }
 .game-board {
-    margin-top: 100px;
+    background-image: url("../images/game.jpg");
+    background-position: 0% 0%;
+    height: 1100px;
+    width: 1920px;
+    position: absolute;
 }
 .scoreNtime {
     display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 20px;
+    justify-content: space-between;
+    width: 1200px;
+    margin-left: 300px;
     font-size: 40px;
+    margin-top: 100px;
 }
+#timer {
+    background-color: white;
+    width: 150px;
+    text-align: center;
+    border-radius: 15px;
+}
+.score {
+    background-color: white;
+    width: 900px;
+    text-align: left;
+    border-radius: 15px;
+}
+
