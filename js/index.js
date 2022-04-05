@@ -1,10 +1,12 @@
 document.querySelector("#start-button").addEventListener('click', startGame);
 document.querySelector(".restart-button").addEventListener('click', startGame);
 document.querySelector(".playAgain-button").addEventListener('click', startGame);
+
 const gameSplash = document.querySelector(".splash");
+const gameBoard = document.querySelector(".game-board");
 const gameOver = document.querySelector(".game-over");
 const winner = document.querySelector(".win-screen");
-const canvas = document.querySelector("#canvas");
+const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
 
 let background,
@@ -12,14 +14,19 @@ let background,
     ingredients = [],
     intervalId,
     score = [],
-    catchedIng;
+    catchedIng,
+    timer,
+    ingFall;
 
 function startGame() {
 	gameSplash.classList.add("hidden");
+    gameOver.classList.add("hidden");
+    winner.classList.add("hidden");
+    gameBoard.classList.remove("hidden");
 	reset();
     background = new Background(canvas, ctx);
     player = new Player(canvas, ctx);
-    setInterval(() => {
+    ingFall = setInterval(() => {
         ingredients.push(new Ingredient(myIngredients,canvas, ctx));
     }, 800);
     createEventListeners();
@@ -37,14 +44,16 @@ function update() {
     });
     if (catchIngredient()) {
         if (catchedIng.good && (score.indexOf(catchedIng.name) == -1)){
+            ingredients = ingredients.filter((item) => {
+                return item.name !== catchedIng.name;
+            });
             score.push(catchedIng.name);
             catchedIng.image = null;
             console.log(score);
-            
         }
-        if(!catchedIng.good) {
-            console.log('bad');
+        else {
 		gameOver.classList.remove("hidden");
+        gameBoard.classList.add("hidden");
 		reset();
 		return;
         }
@@ -91,10 +100,10 @@ function catchIngredient() {
 }
 
 function countdown() {
-    let seconds = 31;
+    let seconds = 30;
     const counter = document.getElementById('timer');
     
-     const timer = setInterval(() => {
+      timer = setInterval(() => {
       seconds --;
       if (seconds > 9){
         counter.innerHTML = '0:' + seconds;   
@@ -105,6 +114,7 @@ function countdown() {
         console.log('timeout');
         clearInterval(timer);
        gameOver.classList.remove("hidden");
+       gameBoard.classList.add("hidden");
         reset(); 
     };
         }, 1000);  
@@ -120,11 +130,14 @@ function reset() {
     catchedIng = null;
     score = [];
     intervalId = null;
+    clearInterval(timer);
+    clearInterval(ingFall);
 }
 
 function checkIfWin() {
     if (score.length === 5) {
         winner.classList.remove("hidden");
+        gameBoard.classList.add("hidden");
 		reset();
 		return;
     }

@@ -11,7 +11,7 @@
     <title>Ramen Master</title>
   </head>
   <body>
-    <section class="splash" style= "background-image: url(images/splash.jpg)">
+    <section class="splash" >
       <h1 class="title">Ramen Master</h1> 
     <div class="start-game">
        
@@ -25,18 +25,21 @@
             <li>Dont't let your ramen get cold!!</li>
         </ul>  
       <button id="start-button">Start!</button>
-      <p>Use the left and right buttons to catch your ingredients!</p>
+      <p>Use the left and right arrow keys to catch your ingredients!</p>
       <img src="./images/keys.png" alt="keys" class="arrows-img"/>
       </div> 
        <img src="./images/ramen.png" alt="ramen-bowl" class="ramen"/>  
     </div>
     </section>
-    <section id="game-board">
-      <p id="timer"></p>
-      <canvas id="canvas" width="1200" height="800"></canvas>
+    <section class="game-board hidden">
+      <div class= "scoreNtime">
+        <div>Score:</div>
+        <div id="timer">0:30</div>
+      </div>
+      <canvas class="canvas" width="1200" height="800"></canvas>
     </section>
     <section class="game-over hidden">
-        <h1>YOU LOST!</h1>
+        <h1>YOU LOST!:(</h1>
         <button class="restart-button">Play again!</button>
     </section>
     <section class="win-screen hidden">
