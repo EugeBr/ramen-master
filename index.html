@@ -19,22 +19,35 @@
         <h2>Instructions</h2> 
         <p>Before you get your <em>Ramen Master</em> title, you must be able to make the <em>perfect ramen</em>. To do so you must use the correct ingredients.</p>
         <ul>
-            <li>Get all the necessary ingredients.</li>
+            <li>Get all the necessary ingredients:</li>
+            <img class= "list" src="images/egg.png" alt="egg-img">
+            <img class="list" src="images/fishcake.png" alt="fishcake-img">
+            <img class="list" src="images/noodles.png" alt="noodles-pic">
+            <img class="list" src="images/pork.png" alt="pork-img">
+            <img class="list" src="images/teapot.png" alt="broth-pic">
             <li>Don't repeat any of them.</li>
             <li>Don't use any wrong ingredient.</li>
-            <li>Dont't let your ramen get cold!!</li>
+            <li>Dont't let your ramen get cold!!!</li>
         </ul>  
-      <button id="start-button">Start!</button>
-      <p>Use the left and right arrow keys to catch your ingredients!</p>
+        <div class="keys">
+          <p class="key-instr">Use the left and right arrow keys to catch your ingredients!</p>
       <img src="./images/keys.png" alt="keys" class="arrows-img"/>
+        </div>
+      <button id="start-button">Start!</button>
       </div> 
        <img src="./images/ramen.png" alt="ramen-bowl" class="ramen"/>  
     </div>
     </section>
     <section class="game-board hidden">
       <div class= "scoreNtime">
-        <div class="score">Score:</div>
-        <div id="timer">0:30</div>
+        <div class="score">Score: 
+          <img class= "egg faded" src="images/egg.png" alt="egg-img">
+          <img class="fishcake faded" src="images/fishcake.png" alt="fishcake-img">
+          <img class="noodles faded" src="images/noodles.png" alt="noodles-pic">
+          <img class="pork faded" src="images/pork.png" alt="pork-img">
+          <img class="broth faded" src="images/teapot.png" alt="broth-pic">
+        </div>
+        <div class="timer">0:30</div>
       </div>
       <canvas class="canvas" width="1200" height="800"></canvas>
     </section>

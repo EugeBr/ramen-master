@@ -8,6 +8,12 @@ const gameOver = document.querySelector(".game-over");
 const winner = document.querySelector(".win-screen");
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
+const ingEgg = document.querySelector(".egg");
+const ingFishcake = document.querySelector(".fishcake");
+const ingNoodles = document.querySelector(".noodles");
+const ingPork = document.querySelector(".pork");
+const ingBroth = document.querySelector(".broth");
+const countDown = document.querySelector(".timer");
 
 let background,
     player,
@@ -16,7 +22,8 @@ let background,
     score = [],
     catchedIng,
     timer,
-    ingFall;
+    ingFall,
+    redTimer;
 
 function startGame() {
 	gameSplash.classList.add("hidden");
@@ -48,6 +55,7 @@ function update() {
                 return item.name !== catchedIng.name;
             });
             score.push(catchedIng.name);
+            getScore(catchedIng.name);
             catchedIng.image = null;
             console.log(score);
         }
@@ -101,25 +109,48 @@ function catchIngredient() {
 
 function countdown() {
     let seconds = 30;
-    const counter = document.getElementById('timer');
     
       timer = setInterval(() => {
       seconds --;
       if (seconds > 9){
-        counter.innerHTML = '0:' + seconds;   
+        countDown.innerHTML = '0:' + seconds;   
       } else {
-        counter.innerHTML = '0:0' + seconds;
+        countDown.innerHTML = '0:0' + seconds;
+      }
+      if (seconds < 6){
+         // redTimer = setInterval(() => {
+            countDown.classList.toggle("red");
+         // }, 500);
       }
       if (seconds == 0) { 
         console.log('timeout');
         clearInterval(timer);
+       // clearInterval(redTimer);
        gameOver.classList.remove("hidden");
        gameBoard.classList.add("hidden");
         reset(); 
     };
         }, 1000);  
-    
+}
 
+function getScore(item) {
+    switch(item) {
+        case 'egg': 
+        ingEgg.classList.remove('faded');
+        break;
+        case 'fishcake':
+        ingFishcake.classList.remove('faded');
+        break;
+        case 'noodles':
+        ingNoodles.classList.remove('faded');
+        break;
+        case 'pork':
+        ingPork.classList.remove('faded');
+        break;
+        case 'broth':
+        ingBroth.classList.remove('faded');
+        break;
+    }
 }
 
 function reset() {
@@ -132,6 +163,11 @@ function reset() {
     intervalId = null;
     clearInterval(timer);
     clearInterval(ingFall);
+    ingEgg.classList.add('faded');
+    ingFishcake.classList.add('faded');
+    ingNoodles.classList.add('faded');
+    ingPork.classList.add('faded');
+    ingBroth.classList.add('faded');
 }
 
 function checkIfWin() {
