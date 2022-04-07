@@ -22,7 +22,11 @@ let background,
     score = [],
     catchedIng,
     timer,
-    ingFall;
+    ingFall,
+    gameSound = new Audio("./Music/Sushi.mp3"),
+    winningSound = new Audio(),
+    loosingSound = new Audio();
+
 
 function startGame() {
 	gameSplash.classList.add("hidden");
@@ -38,6 +42,8 @@ function startGame() {
     createEventListeners();
     update();
     countdown();
+    gameSound.play();
+    gameSound.volume = 0.1;
 }
 
 function update() {
@@ -51,9 +57,6 @@ function update() {
     });
     if (catchIngredient()) {
         if (catchedIng.good && (score.indexOf(catchedIng.name) == -1)){
-            ingredients = ingredients.filter((item) => {
-                return item.name !== catchedIng.name;
-            });
             score.push(catchedIng.name);
             getScore(catchedIng.name);
             catchedIng.image = null;
@@ -75,7 +78,7 @@ function clear() {
 }
 
 function createEventListeners() {
-    document.addEventListener("keydown", (event) => {
+    document.onkeydown =  (event) => {
 		switch (event.key) {
 			case "ArrowRight":
 				player.moveRight();
@@ -86,7 +89,7 @@ function createEventListeners() {
 			default:
 				break;
 		}
-	}); 
+	}; 
 }
 
 function catchIngredient() {
@@ -101,6 +104,7 @@ function catchIngredient() {
 		catched = withinX && withinY;
 
 		if (catched) {
+            ingredients.splice(i, 1);
             return catchedIng;
 		}
 	}
@@ -164,6 +168,7 @@ function reset() {
     ingNoodles.classList.add('faded');
     ingPork.classList.add('faded');
     ingBroth.classList.add('faded');
+    gameSound.pause();
 }
 
 function checkIfWin() {
@@ -174,3 +179,4 @@ function checkIfWin() {
 		return;
     }
 }
+

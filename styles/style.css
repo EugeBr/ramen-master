@@ -35,11 +35,36 @@ canvas {
 .ramen {
     height: 700px;
     padding-right: 100px;
-    transform: rotate(-20deg);
+    
+    animation: wiggle 2s linear infinite;
 }
-.ramen:hover {
+@keyframes wiggle {
+    0%, 7% {
+      transform: rotateZ(-20);
+    }
+    15% {
+      transform: rotateZ(-35deg);
+    }
+    20% {
+      transform: rotateZ(-10deg);
+    }
+    25% {
+      transform: rotateZ(-30deg);
+    }
+    30% {
+      transform: rotateZ(-14deg);
+    }
+    35% {
+      transform: rotateZ(-24deg);
+    }
+    40%, 100% {
+      transform: rotateZ(-20);
+    }
+  }
+
+/*.ramen:hover {
     transform: rotate(10deg);
-}
+}*/
 h1 {
    font-size: 100px;
    margin: 0;
@@ -125,7 +150,7 @@ button:hover {
 }
 .game-over, .win-screen {
     background-color: #722672;
-    height: 1500px;
+    height: 1000px;
     width: 1000px;
     padding-left: 400px;
     margin-left: 200px;
