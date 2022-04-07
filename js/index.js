@@ -22,8 +22,7 @@ let background,
     score = [],
     catchedIng,
     timer,
-    ingFall,
-    redTimer;
+    ingFall;
 
 function startGame() {
 	gameSplash.classList.add("hidden");
@@ -44,6 +43,7 @@ function startGame() {
 function update() {
     clear();
     background.draw();
+    background.move();
 	player.draw();
     ingredients.forEach((item)=> {
         item.move();
@@ -118,14 +118,10 @@ function countdown() {
         countDown.innerHTML = '0:0' + seconds;
       }
       if (seconds < 6){
-         // redTimer = setInterval(() => {
             countDown.classList.toggle("red");
-         // }, 500);
       }
       if (seconds == 0) { 
-        console.log('timeout');
         clearInterval(timer);
-       // clearInterval(redTimer);
        gameOver.classList.remove("hidden");
        gameBoard.classList.add("hidden");
         reset(); 
