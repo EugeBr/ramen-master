@@ -159,7 +159,7 @@ button:hover {
 .game-over > button,
 .win-screen > button {
     margin: 80px;
-    margin-left: 180px;
+    margin-left: 190px;
 }
 .giphy-gameOver, .giphy-win {
     height: 300px;
