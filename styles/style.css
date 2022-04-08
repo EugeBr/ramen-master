@@ -62,9 +62,6 @@ canvas {
     }
   }
 
-/*.ramen:hover {
-    transform: rotate(10deg);
-}*/
 h1 {
    font-size: 100px;
    margin: 0;
@@ -149,16 +146,30 @@ button:hover {
   background-color: red;
 }
 .game-over, .win-screen {
-    background-color: #722672;
-    height: 1000px;
-    width: 1000px;
-    padding-left: 400px;
-    margin-left: 200px;
+    background-image: url("../images/game-over.jpg");
+    height: 700px;
+    width: 900px;
+    margin-top: 200px;
+    padding-left: 200px;
+    margin-left: 300px;
     padding-top: 200px;
     border-radius: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .game-over > button,
 .win-screen > button {
-    margin: 100px;
+    margin: 80px;
+    margin-left: 180px;
+}
+.giphy-gameOver, .giphy-win {
+    height: 300px;
+    padding-left: 100px;
+}
+#loose, #win {
+    font-size: 80px;
+    color: white;
+}
+#win {
+    margin-left: 100px;
+    padding-bottom: 50px;
 }

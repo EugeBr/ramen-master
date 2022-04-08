@@ -24,8 +24,8 @@ let background,
     timer,
     ingFall,
     gameSound = new Audio("./Music/Sushi.mp3"),
-    winningSound = new Audio(),
-    loosingSound = new Audio();
+    winningSound = new Audio("./Music/winner.wav"),
+    loosingSound = new Audio("./Music/looser.wav");
 
 
 function startGame() {
@@ -65,6 +65,7 @@ function update() {
         else {
 		gameOver.classList.remove("hidden");
         gameBoard.classList.add("hidden");
+        loosingSound.play();
 		reset();
 		return;
         }
@@ -128,6 +129,7 @@ function countdown() {
         clearInterval(timer);
        gameOver.classList.remove("hidden");
        gameBoard.classList.add("hidden");
+       loosingSound.play();
         reset(); 
     };
         }, 1000);  
@@ -175,6 +177,7 @@ function checkIfWin() {
     if (score.length === 5) {
         winner.classList.remove("hidden");
         gameBoard.classList.add("hidden");
+        winningSound.play();
 		reset();
 		return;
     }
