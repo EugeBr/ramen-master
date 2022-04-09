@@ -66,6 +66,7 @@ function update() {
 		gameOver.classList.remove("hidden");
         gameBoard.classList.add("hidden");
         loosingSound.play();
+        loosingSound.volume = 0.1;
 		reset();
 		return;
         }
@@ -130,6 +131,7 @@ function countdown() {
        gameOver.classList.remove("hidden");
        gameBoard.classList.add("hidden");
        loosingSound.play();
+       loosingSound.volume = 0.1;
         reset(); 
     };
         }, 1000);  
@@ -178,6 +180,7 @@ function checkIfWin() {
         winner.classList.remove("hidden");
         gameBoard.classList.add("hidden");
         winningSound.play();
+        winningSound.volume = 0.1;
 		reset();
 		return;
     }
