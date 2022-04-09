@@ -60,7 +60,6 @@ function update() {
             score.push(catchedIng.name);
             getScore(catchedIng.name);
             catchedIng.image = null;
-            console.log(score);
         }
         else {
 		gameOver.classList.remove("hidden");
