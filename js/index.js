@@ -23,9 +23,9 @@ let background,
     catchedIng,
     timer,
     ingFall,
-    gameSound = new Audio("./music/sushi.mp3"),
-    winningSound = new Audio("./music/winner.wav"),
-    loosingSound = new Audio("./music/looser.wav");
+    gameSound = new Audio("./Music/Sushi.mp3"),
+    winningSound = new Audio("./Music/winner.wav"),
+    loosingSound = new Audio("./Music/looser.wav");
 
 
 function startGame() {
